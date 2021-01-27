@@ -93,7 +93,8 @@ class zabbix::repo (
           priority => '1',
         }
 
-        if ($facts['os']['name'] == 'CentOS' and $majorrelease == '7') {
+        # Zabbix 5.0 frontend on CentOS 7 has different location.
+        if ($facts['os']['name'] == 'CentOS' and $majorrelease == '7' and $zabbix_version == '5.0') {
           $_frontend_repo_location = $frontend_repo_location ? {
             undef   => "https://repo.zabbix.com/zabbix/${zabbix_version}/rhel/${majorrelease}/\$basearch/frontend",
             default => $frontend_repo_location,

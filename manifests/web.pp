@@ -342,11 +342,11 @@ class zabbix::web (
     }
     'CentOS': {
       $zabbix_web_package = 'zabbix-web'
-      if ($facts['os']['release']['major'] == '7'){
+      if ($facts['os']['release']['major'] == '7') {
 
         package { 'zabbix-required-scl-repo':
-          name => 'centos-release-scl',
-          ensure => 'latest'
+          ensure => 'latest',
+          name   => 'centos-release-scl',
         }
 
         package { "zabbix-web-${db}-scl":
