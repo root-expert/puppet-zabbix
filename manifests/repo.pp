@@ -35,6 +35,7 @@ class zabbix::repo (
   Boolean                   $manage_repo               = $zabbix::params::manage_repo,
   Boolean                   $manage_apt                = $zabbix::params::manage_apt,
   Optional[Stdlib::HTTPUrl] $repo_location             = $zabbix::params::repo_location,
+  Optional[Stdlib::HTTPUrl] $frontend_repo_location    = $zabbix::params::frontend_repo_location,
   Optional[Stdlib::HTTPUrl] $unsupported_repo_location = $zabbix::params::unsupported_repo_location,
   String[1]                 $zabbix_version            = $zabbix::params::zabbix_version,
 ) inherits zabbix::params {
