@@ -279,8 +279,11 @@ class zabbix::web (
       '3.4' : {
         $zabbixapi_version = '4.0.0'
       }
-      /^4\.\d{1}$/: {
-        $zabbixapi_version = '4.2.0'
+      /^4\.[02]$/: {
+        $zabbixapi_version = '4.1.2'
+      }
+      '4.4': {
+        $zabbixapi_version = '4.20'
       }
       default : {
         $zabbixapi_version = '5.0.0-alpha1'

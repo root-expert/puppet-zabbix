@@ -20,7 +20,7 @@ include apache::mod::php
 include postgresql::server
 
 class { 'zabbix':
-  zabbix_version   => '4.4',
+  zabbix_version   => '5.0',
   zabbix_url       => 'localhost',
   zabbix_api_user  => 'Admin',
   zabbix_api_pass  => 'zabbix',
