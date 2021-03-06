@@ -51,7 +51,6 @@ class zabbix::database::postgresql (
     }
   }
 
-
   exec { 'update_pgpass':
     command => "echo ${database_host}:5432:${database_name}:${database_user}:${database_password} >> /root/.pgpass",
     path    => "/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:${database_path}",
