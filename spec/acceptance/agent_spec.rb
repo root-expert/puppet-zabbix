@@ -1,7 +1,7 @@
 require 'spec_helper_acceptance'
 
 def agent_supported(version)
-  return version != '2.4' if default[:platform] =~ %r{(ubuntu-16.04|debian-9)-amd64}
+  return version != '2.4' if default[:platform] =~ %r{(debian-9)-amd64}
   return version >= '4.0' if default[:platform] =~ %r{debian-10-amd64}
   true
 end

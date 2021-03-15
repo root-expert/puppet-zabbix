@@ -55,8 +55,8 @@ describe 'zabbix::web' do
 
         %w[4.4 5.0].each do |zabbix_version|
           describe "with database_type as postgresql and zabbix_version #{zabbix_version}" do
-            next if zabbix_version == '5.0' and %w[Debian Ubuntu].include?(facts[:osfamily]) and
-                %w[16.04 9].include?(facts[:operatingsystemmajrelease])
+            next if zabbix_version == '5.0' and 'Debian'.include?(facts[:osfamily]) and
+                '9'.include?(facts[:operatingsystemmajrelease])
             let :params do
               super().merge(database_type: 'postgresql')
               super().merge(zabbix_version: zabbix_version)
@@ -64,7 +64,7 @@ describe 'zabbix::web' do
 
             pgsqlpackage = case facts[:operatingsystem]
                            when 'Ubuntu'
-                             if facts[:operatingsystemmajrelease] >= '16.04'
+                             if facts[:operatingsystemmajrelease] >= '18.04'
                                'php-pgsql'
                              else
                                'php5-pgsql'
@@ -105,7 +105,7 @@ describe 'zabbix::web' do
 
           mysqlpackage = case facts[:operatingsystem]
                          when 'Ubuntu'
-                           if facts[:operatingsystemmajrelease] >= '16.04'
+                           if facts[:operatingsystemmajrelease] >= '18.04'
                              'php-mysql'
                            else
                              'php5-mysql'
